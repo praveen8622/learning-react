@@ -22,18 +22,41 @@
 
 // export default ListGroup;
 // above method is not a good practice as there are two headings
+
 //conditional rendering method 2
+// function ListGroup() {
+//   let items = ["Kathmandu", "Bhaktapur", "Lalitpur", "Hetauda", "Chitwan"];
+//   items = [];
+
+//   return (
+//     <>
+//       <h1>List</h1>
+//       {items.length === 0 ? <p>No item found</p> : null}
+//       <ul className="list-group">
+//         {items.map((items) => (
+//           <li key={items}>{items}</li>
+//         ))}
+//       </ul>
+//     </>
+//   );
+// }
+
+// export default ListGroup;
+// More practiced way
+import { MouseEvent } from "react";
 function ListGroup() {
   let items = ["Kathmandu", "Bhaktapur", "Lalitpur", "Hetauda", "Chitwan"];
-  items = [];
 
+  const handleClick = (event: MouseEvent) => console.log(event);
   return (
     <>
       <h1>List</h1>
-      {items.length === 0 ? <p>No item found</p> : null}
+      {items.length === 0 && <p>No item found</p>}
       <ul className="list-group">
         {items.map((items) => (
-          <li key={items}>{items}</li>
+          <li className="list-group-item" key={items} onClick={handleClick}>
+            {items}
+          </li>
         ))}
       </ul>
     </>
