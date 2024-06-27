@@ -42,19 +42,51 @@
 // }
 
 // export default ListGroup;
-// More practiced way
-import { MouseEvent } from "react";
+// More practiced way with event handeling
+// import { MouseEvent } from "react";
+// function ListGroup() {
+//   let items = ["Kathmandu", "Bhaktapur", "Lalitpur", "Hetauda", "Chitwan"];
+
+//   const handleClick = (event: MouseEvent) => console.log(event);
+//   return (
+//     <>
+//       <h1>List</h1>
+//       {items.length === 0 && <p>No item found</p>}
+//       <ul className="list-group  ">
+//         {items.map((items) => (
+//           <li className="list-group-item " key={items} onClick={handleClick}>
+//             {items}
+//           </li>
+//         ))}
+//       </ul>
+//     </>
+//   );
+// }
+
+// export default ListGroup;
+
+// // managing state
+
+import { useState } from "react";
+
 function ListGroup() {
   let items = ["Kathmandu", "Bhaktapur", "Lalitpur", "Hetauda", "Chitwan"];
-
-  const handleClick = (event: MouseEvent) => console.log(event);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
   return (
     <>
       <h1>List</h1>
       {items.length === 0 && <p>No item found</p>}
-      <ul className="list-group">
-        {items.map((items) => (
-          <li className="list-group-item" key={items} onClick={handleClick}>
+      <ul className="list-group  ">
+        {items.map((items, index) => (
+          <li
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            key={items}
+            onClick={() => setSelectedIndex(index)}
+          >
             {items}
           </li>
         ))}
