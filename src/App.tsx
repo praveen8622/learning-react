@@ -1,5 +1,7 @@
 // import ListGroup from "./components/ListGroup";
 
+import { useState } from "react";
+import Alert from "./components/Alert";
 import Button from "./components/Button";
 
 // function App() {
@@ -21,9 +23,14 @@ import Button from "./components/Button";
 // export default App;
 
 function App() {
+  const [alertVisible, setalertvisible] = useState(false);
+
   return (
     <div>
-      <Button color="danger" onClick={() => console.log("clicked button")}>
+      {alertVisible && (
+        <Alert onClose={() => setalertvisible(false)}>Alert: </Alert>
+      )}
+      <Button color="outline-danger" onClick={() => setalertvisible(true)}>
         My Button
       </Button>
     </div>
