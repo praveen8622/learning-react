@@ -81,19 +81,40 @@ import Button from "./components/Button";
 // export default App;
 
 // updating arrays
+// function App() {
+//   const [tags, setTags] = useState(["happy", "cheerful"]);
+//   const handleClick = () => {
+//     //add
+//     setTags([...tags, "excited"]);
+//     // remove
+//     setTags(tags.filter((tag) => tag !== "happy"));
+//     // update
+//     setTags(tags.map((tag) => (tag === "happy" ? "happiness" : tag)));
+//   };
+//   return (
+//     <div>
+//       {tags}
+//       <Button onClick={handleClick}>click me</Button>{" "}
+//     </div>
+//   );
+// }
+// export default App;
+
+//updating arrays of object
+
 function App() {
-  const [tags, setTags] = useState(["happy", "cheerful"]);
+  const [bugs, setbugs] = useState([
+    { id: 1, title: "Bug1", fixed: false },
+    { id: 2, title: "Bug2", fixed: false },
+  ]);
   const handleClick = () => {
-    //add
-    setTags([...tags, "excited"]);
-    // remove
-    setTags(tags.filter((tag) => tag !== "happy"));
+    console.log(bugs[0]);
+
     // update
-    setTags(tags.map((tag) => (tag === "happy" ? "happiness" : tag)));
+    setbugs(bugs.map((bug) => (bug.id === 1 ? { ...bug, fixed: true } : bug)));
   };
   return (
     <div>
-      {tags}
       <Button onClick={handleClick}>click me</Button>{" "}
     </div>
   );
