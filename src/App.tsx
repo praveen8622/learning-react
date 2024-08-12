@@ -42,17 +42,38 @@ import Button from "./components/Button";
 // export default App;
 
 // updating objects
+// function App() {
+//   const [drink, setDrink] = useState({
+//     title: "Americano",
+//     price: 5,
+//   });
+//   const handleClick = () => {
+//     console.log(drink);
+//     setDrink({ ...drink, price: 6 });
+//   };
+//   return (
+//     <div>
+//       <Button onClick={handleClick}>click me</Button>{" "}
+//     </div>
+//   );
+// }
+// export default App;
+
+//updating nested object
 function App() {
-  const [drink, setDrink] = useState({
-    title: "Americano",
-    price: 5,
+  const [customer, setCustomer] = useState({
+    name: "John",
+    address: {
+      city: "sanfrancisco",
+      zip: 34567,
+    },
   });
   const handleClick = () => {
-    console.log(drink);
-    setDrink({ ...drink, price: 6 });
+    setCustomer({ ...customer, address: { ...customer.address, zip: 56789 } });
   };
   return (
     <div>
+      {customer.address.zip}
       <Button onClick={handleClick}>click me</Button>{" "}
     </div>
   );
