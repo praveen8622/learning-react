@@ -60,20 +60,40 @@ import Button from "./components/Button";
 // export default App;
 
 //updating nested object
+// function App() {
+//   const [customer, setCustomer] = useState({
+//     name: "John",
+//     address: {
+//       city: "sanfrancisco",
+//       zip: 34567,
+//     },
+//   });
+//   const handleClick = () => {
+//     setCustomer({ ...customer, address: { ...customer.address, zip: 56789 } });
+//   };
+//   return (
+//     <div>
+//       {customer.address.zip}
+//       <Button onClick={handleClick}>click me</Button>{" "}
+//     </div>
+//   );
+// }
+// export default App;
+
+// updating arrays
 function App() {
-  const [customer, setCustomer] = useState({
-    name: "John",
-    address: {
-      city: "sanfrancisco",
-      zip: 34567,
-    },
-  });
+  const [tags, setTags] = useState(["happy", "cheerful"]);
   const handleClick = () => {
-    setCustomer({ ...customer, address: { ...customer.address, zip: 56789 } });
+    //add
+    setTags([...tags, "excited"]);
+    // remove
+    setTags(tags.filter((tag) => tag !== "happy"));
+    // update
+    setTags(tags.map((tag) => (tag === "happy" ? "happiness" : tag)));
   };
   return (
     <div>
-      {customer.address.zip}
+      {tags}
       <Button onClick={handleClick}>click me</Button>{" "}
     </div>
   );
