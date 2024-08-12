@@ -1,8 +1,11 @@
 // import ListGroup from "./components/ListGroup";
 
 import { useState } from "react";
-import Alert from "./components/Alert";
 import Button from "./components/Button";
+
+// import { useState } from "react";
+// import Alert from "./components/Alert";
+// import Button from "./components/Button";
 
 // function App() {
 //   let items = ["Kathmandu", "Bhaktapur", "Lalitpur", "Hetauda", "Chitwan"];
@@ -22,17 +25,35 @@ import Button from "./components/Button";
 
 // export default App;
 
-function App() {
-  const [alertVisible, setalertvisible] = useState(false);
+// function App() {
+//   const [alertVisible, setalertvisible] = useState(false);
 
+//   return (
+//     <div>
+//       {alertVisible && (
+//         <Alert onClose={() => setalertvisible(false)}>Alert: </Alert>
+//       )}
+//       <Button color="outline-danger" onClick={() => setalertvisible(true)}>
+//         My Button
+//       </Button>
+//     </div>
+//   );
+// }
+// export default App;
+
+// updating objects
+function App() {
+  const [drink, setDrink] = useState({
+    title: "Americano",
+    price: 5,
+  });
+  const handleClick = () => {
+    console.log(drink);
+    setDrink({ ...drink, price: 6 });
+  };
   return (
     <div>
-      {alertVisible && (
-        <Alert onClose={() => setalertvisible(false)}>Alert: </Alert>
-      )}
-      <Button color="outline-danger" onClick={() => setalertvisible(true)}>
-        My Button
-      </Button>
+      <Button onClick={handleClick}>click me</Button>{" "}
     </div>
   );
 }
