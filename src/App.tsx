@@ -102,19 +102,33 @@ import Button from "./components/Button";
 
 //updating arrays of object
 
+import { produce } from "immer";
 function App() {
   const [bugs, setbugs] = useState([
-    { id: 1, title: "Bug1", fixed: false },
-    { id: 2, title: "Bug2", fixed: false },
+    { id: 1, title: " Bug1 ", fixed: false },
+    { id: 2, title: " Bug2 ", fixed: false },
   ]);
   const handleClick = () => {
     console.log(bugs[0]);
+    setbugs(
+      produce((draft) => {
+        produce;
+        const bug = draft.find((bug) => bug.id === 1);
+        if (bug) bug.fixed = true;
+      })
+    );
 
     // update
-    setbugs(bugs.map((bug) => (bug.id === 1 ? { ...bug, fixed: true } : bug)));
+    // setbugs(bugs.map((bug) => (bug.id === 1 ? { ...bug, fixed: true } : bug)));
   };
   return (
     <div>
+      {bugs.map((bug) => (
+        <p key={bug.id}>
+          {bug.title}
+          {bug.fixed ? "fixed" : "new"}
+        </p>
+      ))}
       <Button onClick={handleClick}>click me</Button>{" "}
     </div>
   );
