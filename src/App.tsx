@@ -1,9 +1,10 @@
 // import ListGroup from "./components/ListGroup";
 
-import { useState } from "react";
-import Button from "./components/Button";
-import NavBar from "./components/NavBar";
-import Cart from "./components/Cart";
+// import { useState } from "react";
+// import Button from "./components/Button";
+// import NavBar from "./components/NavBar";
+// import Cart from "./components/Cart";
+import ExpandableText from "./components/ExpandableText";
 
 // import { useState } from "react";
 // import Alert from "./components/Alert";
@@ -138,13 +139,56 @@ import Cart from "./components/Cart";
 // export default App;
 
 // sharing  state between components
-function App() {
-  const [cartItems, setCartItems] = useState(["product1", "product2"]);
+// function App() {
+//   const [cartItems, setCartItems] = useState(["product1", "product2"]);
 
+//   return (
+//     <div>
+//       <NavBar cartItemsCount={cartItems.length} />
+//       <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
+//     </div>
+//   );
+// }
+// export default App;
+
+// function App() {
+//   const [game, setGame] = useState({
+//     id: 1,
+//     player: {
+//       name: "john",
+//     },
+//   });
+//   const handleClick = () => {
+//     setGame({ ...game, player: { ...game.player, name: "bob" } });
+//   };
+//   return (
+//     <div>
+//       {game.player.name}
+//       <Button onClick={handleClick}>click me</Button>{" "}
+//     </div>
+//   );
+// }
+// export default App;
+
+// expandable text exercise
+
+function App() {
   return (
     <div>
-      <NavBar cartItemsCount={cartItems.length} />
-      <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
+      <ExpandableText maxChar={100}>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse commodi
+        iusto expedita, ducimus aperiam blanditiis maiores temporibus magnam
+        ratione sit debitis, totam quae illo enim omnis rerum deserunt obcaecati
+        fugit est nostrum quas quibusdam nihil. Officia minus aliquam illo
+        excepturi dicta nam distinctio placeat temporibus alias, iste culpa
+        perferendis reiciendis laborum illum adipisci, eaque minima cupiditate
+        totam voluptates. Nobis doloribus accusamus atque perspiciatis fuga
+        quibusdam, blanditiis vel impedit autem dolor maiores minima voluptatem.
+        Ipsam doloribus culpa, recusandae omnis dicta repudiandae vero molestias
+        incidunt facere maiores, excepturi cupiditate minus laboriosam inventore
+        sit delectus. Eum dignissimos facere aliquid expedita, exercitationem
+        eius atque?
+      </ExpandableText>
     </div>
   );
 }
