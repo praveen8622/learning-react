@@ -5,6 +5,7 @@
 // import NavBar from "./components/NavBar";
 // import Cart from "./components/Cart";
 import ExpandableText from "./components/ExpandableText";
+import Form from "./components/Form";
 
 // import { useState } from "react";
 // import Alert from "./components/Alert";
@@ -172,23 +173,32 @@ import ExpandableText from "./components/ExpandableText";
 
 // expandable text exercise
 
+// function App() {
+//   return (
+//     <div>
+//       <ExpandableText maxChar={100}>
+//         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse commodi
+//         iusto expedita, ducimus aperiam blanditiis maiores temporibus magnam
+//         ratione sit debitis, totam quae illo enim omnis rerum deserunt obcaecati
+//         fugit est nostrum quas quibusdam nihil. Officia minus aliquam illo
+//         excepturi dicta nam distinctio placeat temporibus alias, iste culpa
+//         perferendis reiciendis laborum illum adipisci, eaque minima cupiditate
+//         totam voluptates. Nobis doloribus accusamus atque perspiciatis fuga
+//         quibusdam, blanditiis vel impedit autem dolor maiores minima voluptatem.
+//         Ipsam doloribus culpa, recusandae omnis dicta repudiandae vero molestias
+//         incidunt facere maiores, excepturi cupiditate minus laboriosam inventore
+//         sit delectus. Eum dignissimos facere aliquid expedita, exercitationem
+//         eius atque?
+//       </ExpandableText>
+//     </div>
+//   );
+// }
+// export default App;
+
 function App() {
   return (
     <div>
-      <ExpandableText maxChar={100}>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse commodi
-        iusto expedita, ducimus aperiam blanditiis maiores temporibus magnam
-        ratione sit debitis, totam quae illo enim omnis rerum deserunt obcaecati
-        fugit est nostrum quas quibusdam nihil. Officia minus aliquam illo
-        excepturi dicta nam distinctio placeat temporibus alias, iste culpa
-        perferendis reiciendis laborum illum adipisci, eaque minima cupiditate
-        totam voluptates. Nobis doloribus accusamus atque perspiciatis fuga
-        quibusdam, blanditiis vel impedit autem dolor maiores minima voluptatem.
-        Ipsam doloribus culpa, recusandae omnis dicta repudiandae vero molestias
-        incidunt facere maiores, excepturi cupiditate minus laboriosam inventore
-        sit delectus. Eum dignissimos facere aliquid expedita, exercitationem
-        eius atque?
-      </ExpandableText>
+      <Form />
     </div>
   );
 }
