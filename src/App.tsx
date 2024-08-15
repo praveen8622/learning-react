@@ -8,6 +8,7 @@ import { useState } from "react";
 import ExpandableText from "./components/ExpandableText";
 import Form from "./components/Form";
 import ExpenseList from "./expense-tracker/components/ExpenseList";
+import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
 
 // import { useState } from "react";
 // import Alert from "./components/Alert";
@@ -198,15 +199,25 @@ import ExpenseList from "./expense-tracker/components/ExpenseList";
 // export default App;
 
 function App() {
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [expenses, setExpenses] = useState([
-    { id: 1, description: "aaa", amount: 10, category: "utilities" },
-    { id: 2, description: "bbb", amount: 10, category: "utilities" },
+    { id: 1, description: "aaa", amount: 10, category: "Utilities" },
+    { id: 2, description: "bbb", amount: 10, category: "Utilities" },
+    { id: 3, description: "bbb", amount: 10, category: "Entertainments" },
   ]);
 
+  const visibleExpenses = selectedCategory
+    ? expenses.filter((e) => e.category === selectedCategory)
+    : expenses;
   return (
     <div>
+      <div className="mb-3">
+        <ExpenseFilter
+          onSelectCategory={(category) => setSelectedCategory(category)}
+        />
+      </div>
       <ExpenseList
-        expenses={expenses}
+        expenses={visibleExpenses}
         onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
       />
     </div>
