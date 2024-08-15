@@ -4,8 +4,10 @@
 // import Button from "./components/Button";
 // import NavBar from "./components/NavBar";
 // import Cart from "./components/Cart";
+import { useState } from "react";
 import ExpandableText from "./components/ExpandableText";
 import Form from "./components/Form";
+import ExpenseList from "./expense-tracker/components/ExpenseList";
 
 // import { useState } from "react";
 // import Alert from "./components/Alert";
@@ -196,9 +198,17 @@ import Form from "./components/Form";
 // export default App;
 
 function App() {
+  const [expenses, setExpenses] = useState([
+    { id: 1, description: "aaa", amount: 10, category: "utilities" },
+    { id: 2, description: "bbb", amount: 10, category: "utilities" },
+  ]);
+
   return (
     <div>
-      <Form />
+      <ExpenseList
+        expenses={expenses}
+        onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
+      />
     </div>
   );
 }
